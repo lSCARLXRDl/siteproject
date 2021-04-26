@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  p.name { font-size: 50px }
+  p.email { font-size: 25px }
+  p.age { font-size: 20px }
+</style>
+{% if current_user.is_authenticated %}
+<div align="center">
+<div align="center" class="card" style="width: 28rem;">
+  <img class="card-img-top" src="static/img/{{current_user.picture}}" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text name">{{current_user.name}} {{current_user.surname}}</p>
+    <p class="card-text email">{{current_user.email}}</p>
+    <p class="card-text age">Возраст: {{current_user.age}}</p>
+  </div>
+</div>
+</div>
+{% else %}
+<h1>Вы не вошли</h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul class="list-group">
+    {% for i in prods %}
+    <a href="/tovar/{{ i[2] }}">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{i[0]}}
+            <span class="badge badge-primary badge-pill">{{i[1]}} руб.</span>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a> </a>
+            <a type="button" class="btn btn-success">Заказать</a>
+            <a href="/del_tov/{{i[2]}}" type="button" class="btn btn-danger">X</a>
+        </li>
+
+    </a>
+
+    {% endfor %}
+</ul>
+{% endblock %}

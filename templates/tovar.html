@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    h1 { font-size: 50px}
+</style>
+<img src="/static/img/{{prod.picture}}" class="rounded float-left" alt="..." height="550px">
+<h1>  {{prod.title}}</h1>
+<br>
+<h2>  Цена: {{prod.price}} руб.</h2>
+<br>
+<a>  {{prod.content}}</a>
+<br>
+<br>
+{% if current_user.role == "admin" %}
+<a href="/delete/{{prod.id}}" type="button" class="btn btn-danger">Удалить</a>
+{% endif %}
+{% if current_user.role == "polz" %}
+<a href="/add_tov/{{prod.id}}" type="button" class="btn btn-primary">Добавить в корзину</a>
+{% endif %}
+{% endblock %}
